@@ -3,6 +3,7 @@
 //모듈 
 const express = require("express");
 const app = express();
+const ejsMate = require("ejs-mate")
 
 //라우팅
 const indexRouter = require('./routes/indexRoutes');
@@ -13,6 +14,7 @@ const PORT = 3000;
 //앱 세팅
 app.set('views', './views');
 // app.set("views", "./login/views");
+app.engine('ejs', ejsMate)
 app.set("view engine", "ejs");
 app.use(express.static(`${__dirname}/src/public`));
 
