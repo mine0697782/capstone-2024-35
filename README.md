@@ -10,11 +10,11 @@
 ## 3. 팀 소개
 <table>
     <tr align="center">
-        <td><img src=![KakaoTalk_20240320_215859350](https://github.com/kookmin-sw/capstone-2024-35/assets/66250400/461db9f6-ed5c-433e-ace3-39229fae313b)
+        <td><img src="https://github.com/kookmin-sw/capstone-2021-18/assets/66250400/f80fb911-fe38-4f69-9163-dcf6c2af07df"
  width="250"></td>
-        <td><img src=![KakaoTalk_20240321_120728725](https://github.com/kookmin-sw/capstone-2024-35/assets/66250400/259127ac-a452-4270-ba50-3644118b36ae)
+        <td><img src="https://github.com/kookmin-sw/capstone-2021-18/assets/66250400/32c62e96-a8c0-4197-8bb1-11fc94307587"
  width="250"></td>
-        <td><img src=![KakaoTalk_20240329_163241991_10](https://github.com/kookmin-sw/capstone-2024-35/assets/66250400/7891ac80-1fec-4af5-b842-5e83b683ab20)
+        <td><img src="https://github.com/kookmin-sw/capstone-2021-18/assets/66250400/d8a3bf9d-96a7-4edc-8b94-c0afbc213b38"
  width="250"></td>
     </tr>
     <tr align="center">
@@ -29,16 +29,16 @@
     </tr>
     <tr align="center">
         <td>AI / Frontend</td>
-        <td>AL / Frontend</td>
+        <td>AI / Frontend</td>
         <td>Product Manager</td>
     </tr>
 </table>
 
 <table>
     <tr align="center">
-        <td><img src=![KakaoTalk_20240329_162901769](https://github.com/kookmin-sw/capstone-2024-35/assets/66250400/c2aa3bcc-8e71-4da5-af26-65b760dee85c)
+        <td><img src="https://github.com/kookmin-sw/capstone-2021-18/assets/66250400/a792894c-771e-4cd6-98db-5b48bd8840cb"
  width="250"></td>
-        <td><img src=![KakaoTalk_20240320_215525540](https://github.com/kookmin-sw/capstone-2024-35/assets/66250400/ff95d117-9f49-47b8-99f6-7c17a8804065)
+        <td><img src="https://github.com/kookmin-sw/capstone-2021-18/assets/66250400/9ec837da-63ab-4ae6-80b9-8222e5109e24"
  width="250"></td>
     </tr>
     <tr align="center">
