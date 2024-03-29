@@ -10,9 +10,12 @@
 ## 3. 팀 소개
 <table>
     <tr align="center">
-        <td><img src=""C:\Users\C\Documents\카카오톡 받은 파일\KakaoTalk_20240320_215859350.jpg"" width="250"></td>
-        <td><img src=""C:\Users\C\Documents\카카오톡 받은 파일\KakaoTalk_20240321_120728725.jpg"" width="250"></td>
-        <td><img src=""C:\Users\C\Documents\카카오톡 받은 파일\KakaoTalk_20240329_163241991_10.jpg"" width="250"></td>
+        <td><img src=![KakaoTalk_20240320_215859350](https://github.com/kookmin-sw/capstone-2024-35/assets/66250400/461db9f6-ed5c-433e-ace3-39229fae313b)
+ width="250"></td>
+        <td><img src=![KakaoTalk_20240321_120728725](https://github.com/kookmin-sw/capstone-2024-35/assets/66250400/259127ac-a452-4270-ba50-3644118b36ae)
+ width="250"></td>
+        <td><img src=![KakaoTalk_20240329_163241991_10](https://github.com/kookmin-sw/capstone-2024-35/assets/66250400/7891ac80-1fec-4af5-b842-5e83b683ab20)
+ width="250"></td>
     </tr>
     <tr align="center">
         <td>박참솔</td>
@@ -33,8 +36,9 @@
 
 <table>
     <tr align="center">
-        <td><img src=""C:\Users\C\Documents\카카오톡 받은 파일\KakaoTalk_20240329_162901769.jpg"" width="250"></td>
-        <td><img src=""C:\Users\C\Documents\카카오톡 받은 파일\KakaoTalk_20240320_215525540.jpg"" width="250"></td>
+        <td><img src=![KakaoTalk_20240329_162901769](https://github.com/kookmin-sw/capstone-2024-35/assets/66250400/c2aa3bcc-8e71-4da5-af26-65b760dee85c)
+ width="250"></td>
+        <td><img src="C:\Users\C\Pictures\KakaoTalk_20240320_215525540.jpg" width="250"></td>
     </tr>
     <tr align="center">
         <td>이동현</td>
