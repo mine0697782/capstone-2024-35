@@ -17,6 +17,8 @@
 ### 🌐 Frontend
 - ![JavaScript](https://img.shields.io/badge/-JavaScript-F7DF1E?style=flat&logo=javascript&logoColor=black) - The programming language of the Web.
 - ![REACT](https://img.shields.io/badge/-React-61DAFB?style=flat&logo=react&logoColor=black) - A JavaScript library for building user interfaces.
+- ![Figma](https://img.shields.io/badge/-Figma-F24E1E?style=flat&logo=figma&logoColor=white) - Utilized for designing the overall UI/UX of the frontend.
+
 
 ### ⚙️ Backend
 - ![NodeJS](https://img.shields.io/badge/-NodeJS-339933?style=flat&logo=nodedotjs&logoColor=white) - JavaScript runtime built on Chrome's V8 JavaScript engine.
@@ -27,6 +29,8 @@
 - ![Python](https://img.shields.io/badge/-Python-3776AB?style=flat&logo=python&logoColor=white) - High-level programming language for general-purpose programming.
 - ![Pytorch](https://img.shields.io/badge/-Pytorch-EE4C2C?style=flat&logo=pytorch&logoColor=white) - An open source machine learning library based on the Torch library.
 - ![Colab](https://img.shields.io/badge/-Colab-F9AB00?style=flat&logo=googlecolab&logoColor=white) - A Google research project created to help disseminate machine learning education and research.
+- ![AWS EC2](https://img.shields.io/badge/-AWS%20EC2-232F3E?style=flat&logo=amazonaws&logoColor=white) - Utilizing GPU instances for high-performance computing in machine learning projects.
+
 
 ### 🧰 Common Tools
 - ![Github](https://img.shields.io/badge/-Github-181717?style=flat&logo=github&logoColor=white) - Provides hosting for software development version control using Git.
