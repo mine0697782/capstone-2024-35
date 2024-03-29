@@ -8,7 +8,49 @@
 ## 2. 소개영상
 
 ## 3. 팀 소개
+<table>
+    <tr align="center">
+        <td><img src="" width="250"></td>
+        <td><img src="" width="250"></td>
+        <td><img src="" width="250"></td>
+    </tr>
+    <tr align="center">
+        <td>박참솔</td>
+        <td>송문선</td>
+        <td>조휘현</td>
+    </tr>
+    <tr align="center">
+        <td>20190084</td>
+        <td>20171637</td>
+        <td>20203320</td>
+    </tr>
+    <tr align="center">
+        <td>AI / Frontend</td>
+        <td>AL / Frontend</td>
+        <td>Product Manager</td>
+    </tr>
+</table>
 
+<table>
+    <tr align="center">
+        <td><img src="" width="250"></td>
+        <td><img src="" width="250"></td>
+    </tr>
+    <tr align="center">
+        <td>이동현</td>
+        <td>정민재</td>
+    </tr>
+    <tr align="center">
+        <td>20180837</td>
+        <td>20181688</td>
+    </tr>
+    <tr align="center">
+        <td>Backend</td>
+        <td>Backend</td>
+    </tr>
+</table>
+
+<br>
 
 
 
