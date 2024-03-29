@@ -88,3 +88,7 @@
 Node.js v20.11.1(LTS)
 
 로컬 mongoDB 설치하기
+
+npm install 로 package.json에 있는 버전에 맞춘 패키지들 설치  
+
+패키지 정리 nodemon, express, bycrypt, body-parser
