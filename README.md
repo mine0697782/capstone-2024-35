@@ -90,10 +90,25 @@
 
 
 ## 6. 사용방법
-Node.js v20.11.1(LTS)
+# 프로젝트명
 
-로컬 mongoDB 설치하기
+## 개요
+이 프로젝트는 Node.js와 MongoDB를 사용하여 개발되었습니다.
 
-npm install 로 package.json에 있는 버전에 맞춘 패키지들 설치  
+## 환경 설정
+- Node.js v20.11.1(LTS) 설치
+- 로컬에 MongoDB 설치
+
+### Node.js 설치
+1. Node.js v20.11.1(LTS)를 설치합니다. [Node.js 다운로드 페이지](https://nodejs.org/)에서 다운로드 및 설치할 수 있습니다.
+
+### 로컬 MongoDB 설치
+1. MongoDB 공식 사이트에서 MongoDB Community Server를 다운로드하고 설치합니다. [MongoDB 다운로드 페이지](https://www.mongodb.com/try/download/community)
+
+## 패키지 설치
+프로젝트에 필요한 패키지들을 설치합니다.
+
+```bash
+npm install
 
 패키지 정리 nodemon, express, bycrypt, body-parser
