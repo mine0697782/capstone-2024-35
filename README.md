@@ -10,9 +10,9 @@
 ## 3. 팀 소개
 <table>
     <tr align="center">
-        <td><img src="" width="250"></td>
-        <td><img src="" width="250"></td>
-        <td><img src="" width="250"></td>
+        <td><img src=""C:\Users\C\Documents\카카오톡 받은 파일\KakaoTalk_20240320_215859350.jpg"" width="250"></td>
+        <td><img src=""C:\Users\C\Documents\카카오톡 받은 파일\KakaoTalk_20240321_120728725.jpg"" width="250"></td>
+        <td><img src=""C:\Users\C\Documents\카카오톡 받은 파일\KakaoTalk_20240329_163241991_10.jpg"" width="250"></td>
     </tr>
     <tr align="center">
         <td>박참솔</td>
@@ -33,8 +33,8 @@
 
 <table>
     <tr align="center">
-        <td><img src="" width="250"></td>
-        <td><img src="" width="250"></td>
+        <td><img src=""C:\Users\C\Documents\카카오톡 받은 파일\KakaoTalk_20240329_162901769.jpg"" width="250"></td>
+        <td><img src=""C:\Users\C\Documents\카카오톡 받은 파일\KakaoTalk_20240320_215525540.jpg"" width="250"></td>
     </tr>
     <tr align="center">
         <td>이동현</td>
