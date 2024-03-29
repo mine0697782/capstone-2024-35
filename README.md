@@ -38,7 +38,8 @@
     <tr align="center">
         <td><img src=![KakaoTalk_20240329_162901769](https://github.com/kookmin-sw/capstone-2024-35/assets/66250400/c2aa3bcc-8e71-4da5-af26-65b760dee85c)
  width="250"></td>
-        <td><img src="C:\Users\C\Pictures\KakaoTalk_20240320_215525540.jpg" width="250"></td>
+        <td><img src=![KakaoTalk_20240320_215525540](https://github.com/kookmin-sw/capstone-2024-35/assets/66250400/ff95d117-9f49-47b8-99f6-7c17a8804065)
+ width="250"></td>
     </tr>
     <tr align="center">
         <td>이동현</td>
