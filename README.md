@@ -108,7 +108,5 @@
 ## 패키지 설치
 프로젝트에 필요한 패키지들을 설치합니다.
 
-```bash
-npm install
-
-패키지 정리 nodemon, express, bycrypt, body-parser
+## 추후 변경해야 할 점
+gitignore에 .env파일을 추가해서 유저 정보가 공개되지 않게 하기!
