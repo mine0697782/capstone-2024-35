@@ -2,7 +2,7 @@ require("dotenv").config();
 require('express-async-errors');
 
 //모듈 
-const connectDB = require("./db.connect")
+const connectDB = require("./db/connect")
 const express = require("express");
 const cors = require('cors')
 const app = express();
