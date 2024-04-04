@@ -8,7 +8,54 @@
 ## 2. 소개영상
 
 ## 3. 팀 소개
+<table>
+    <tr align="center">
+        <td><img src="https://github.com/kookmin-sw/capstone-2021-18/assets/66250400/f80fb911-fe38-4f69-9163-dcf6c2af07df"
+ width="250"></td>
+        <td><img src="https://github.com/kookmin-sw/capstone-2021-18/assets/66250400/32c62e96-a8c0-4197-8bb1-11fc94307587"
+ width="250"></td>
+        <td><img src="https://github.com/kookmin-sw/capstone-2021-18/assets/66250400/d8a3bf9d-96a7-4edc-8b94-c0afbc213b38"
+ width="250"></td>
+    </tr>
+    <tr align="center">
+        <td>박참솔</td>
+        <td>송문선</td>
+        <td>조휘현</td>
+    </tr>
+    <tr align="center">
+        <td>20190084</td>
+        <td>20171637</td>
+        <td>20203320</td>
+    </tr>
+    <tr align="center">
+        <td>AI / Frontend</td>
+        <td>AI / Frontend</td>
+        <td>Product Manager</td>
+    </tr>
+</table>
 
+<table>
+    <tr align="center">
+        <td><img src="https://github.com/kookmin-sw/capstone-2021-18/assets/66250400/a792894c-771e-4cd6-98db-5b48bd8840cb"
+ width="250"></td>
+        <td><img src="https://github.com/kookmin-sw/capstone-2021-18/assets/66250400/9ec837da-63ab-4ae6-80b9-8222e5109e24"
+ width="250"></td>
+    </tr>
+    <tr align="center">
+        <td>이동현</td>
+        <td>정민재</td>
+    </tr>
+    <tr align="center">
+        <td>20180837</td>
+        <td>20181688</td>
+    </tr>
+    <tr align="center">
+        <td>Backend</td>
+        <td>Backend</td>
+    </tr>
+</table>
+
+<br>
 
 
 
@@ -43,6 +90,26 @@
 
 
 ## 6. 사용방법
-Node.js v20.11.1(LTS)
+# 프로젝트명
 
-로컬 mongoDB 설치하기
+## 개요
+이 프로젝트는 Node.js와 MongoDB를 사용하여 개발되었습니다.
+
+## 환경 설정
+- Node.js v20.11.1(LTS) 설치
+- 로컬에 MongoDB 설치
+
+### Node.js 설치
+1. Node.js v20.11.1(LTS)를 설치합니다. [Node.js 다운로드 페이지](https://nodejs.org/)에서 다운로드 및 설치할 수 있습니다.
+
+### 로컬 MongoDB 설치
+1. MongoDB 공식 사이트에서 MongoDB Community Server를 다운로드하고 설치합니다. [MongoDB 다운로드 페이지](https://www.mongodb.com/try/download/community)
+
+## 패키지 설치
+프로젝트에 필요한 패키지들을 설치합니다.
+npm install
+## 추후 변경해야 할 점
+gitignore에 .env파일을 추가해서 유저 정보가 공개되지 않게 하기!
+
+2024-04-04 추가 패키지 dotenv cors mongoose jsonwebtoken express-async-errors
+mainRouter
