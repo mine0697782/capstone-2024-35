@@ -108,14 +108,14 @@
 ### 모델 불러오기
 1. 모델은 huggingface에 업로드 되어있습니다 . [모델 주소 : (https://huggingface.co/mmoonssun/klue_ner_kobert)]
 2. 파이썬이나 colab등에서 모델을 불러오려면 다음 코드를 실행하면 됩니다.
-   '''
-   from kobert_transformers import get_kobert_model, get_tokenizer
-   from transformers import BertForTokenClassification
+```python
+from kobert_transformers import get_kobert_model, get_tokenizer
+from transformers import BertForTokenClassification
 
-   model_name = "mmoonssun/klue_ner_kobert"
-   model = BertForTokenClassification.from_pretrained(model_name, num_labels=13)
-   tokenizer = KoBERTTokenizer.from_pretrained('skt/kobert-base-v1')
-   '''
+model_name = "mmoonssun/klue_ner_kobert"
+model = BertForTokenClassification.from_pretrained(model_name, num_labels=13)
+tokenizer = KoBERTTokenizer.from_pretrained('skt/kobert-base-v1')
+```
 
 ## 패키지 설치
 프로젝트에 필요한 패키지들을 설치합니다.
