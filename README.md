@@ -106,7 +106,7 @@
 1. MongoDB 공식 사이트에서 MongoDB Community Server를 다운로드하고 설치합니다. [MongoDB 다운로드 페이지](https://www.mongodb.com/try/download/community)
 
 ### 모델 불러오기
-1. 모델은 huggingface에 업로드 되어있습니다 . [모델 주소 : (https://huggingface.co/mmoonssun/klue_ner_kobert)]
+1. 모델은 huggingface에 업로드 되어있습니다 . [모델 주소 : https://huggingface.co/mmoonssun/klue_ner_kobert]
 2. 파이썬이나 colab등에서 모델을 불러오려면 다음 코드를 실행하면 됩니다.
 ```python
 from kobert_transformers import get_kobert_model, get_tokenizer
