@@ -110,3 +110,6 @@
 npm install
 ## 추후 변경해야 할 점
 gitignore에 .env파일을 추가해서 유저 정보가 공개되지 않게 하기!
+
+2024-04-04 추가 패키지 dotenv cors mongoose jsonwebtoken express-async-errors
+mainRouter
