@@ -131,9 +131,8 @@ gitignore에 .env파일을 추가해서 유저 정보가 공개되지 않게 하
 2024-04-04 추가 패키지 dotenv cors mongoose jsonwebtoken express-async-errors
 
 ## env 파일 예시
-파일 명 .env
-MONGO_URI=our mongodb uri (given)
-JWT_SECRET=our own text
+파일 명 .env <br>
+MONGO_URI=our mongodb uri (given) <br> JWT_SECRET=our own text
 
 ## 7. 캡스톤 중간발료 자료 
 https://drive.google.com/file/d/1LUjsdSaV7NIY5Zc5wkjRuRAeCKtxECTb/view?usp=drivesdk
