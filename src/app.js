@@ -36,6 +36,9 @@ app.get("/register", (req, res) =>{
   res.render("register")
 })
 
+app.get("/dashboard", (req, res) => {
+  res.render("index")
+})
 const port = process.env.PORT || 3000;
 
 const start = async () => {
