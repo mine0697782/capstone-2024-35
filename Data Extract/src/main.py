@@ -1,6 +1,8 @@
 from src.model import load_model_and_tokenizer, predict_entities
 from src.data_processing import find_career_status, find_phone_number, extract_and_combine_entities
 
+#ssh -i /path/to/your-key.pem ubuntu@ec2-XX-XXX-XXX-XXX.compute-1.amazonaws.com
+
 model, tokenizer = load_model_and_tokenizer()
 id2tag = {id: tag for tag, id in enumerate(tag_list)}  # tag_list는 사전에 정의되어 있어야 합니다.
 
