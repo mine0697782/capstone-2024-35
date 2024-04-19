@@ -1,5 +1,6 @@
 from src.model import load_model_and_tokenizer, predict_entities
 from src.data_processing import find_career_status, find_phone_number, extract_and_combine_entities
+from datasets import load_dataset
 
 #ssh -i /path/to/your-key.pem ubuntu@ec2-XX-XXX-XXX-XXX.compute-1.amazonaws.com
 #device = torch.device('cuda:0') if torch.cuda.is_available() else torch.device('cpu')
