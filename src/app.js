@@ -3,7 +3,7 @@ require('dotenv').config();
 const express = require('express');
 const expressLayouts = require('express-ejs-layouts');
 const methodOverride = require("method-override");
-const connectDB = require('./server/config/db');
+const connectDB = require('./config/db');
 const session = require('express-session');
 const passport = require('passport');
 const MongoStore = require('connect-mongo');
@@ -44,9 +44,9 @@ app.set('view engine', 'ejs');
 
 
 // 라우팅
-app.use('/', require('./server/routes/auth'));
-app.use('/', require('./server/routes/index'));
-app.use('/', require('./server/routes/dashboard'));
+app.use('/', require('./routes/auth'));
+app.use('/', require('./routes/index'));
+app.use('/', require('./routes/dashboard'));
 
 //모건
 app.use(morgan('dev'))
