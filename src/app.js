@@ -1,48 +1,63 @@
-require("dotenv").config();
-require('express-async-errors');
+require('dotenv').config();
 
-//모듈 
-const connectDB = require("./db/connect")
-const express = require("express");
-const cors = require('cors')
+const express = require('express');
+const expressLayouts = require('express-ejs-layouts');
+const methodOverride = require("method-override");
+const connectDB = require('./config/db');
+const session = require('express-session');
+const passport = require('passport');
+const MongoStore = require('connect-mongo');
+const morgan = require('morgan');
+
 const app = express();
-const ejsMate = require("ejs-mate")
+const port = 5000 || process.env.PORT;
+
+app.use(session({
+  secret: 'keyboard cat',
+  resave: false,
+  saveUninitialized: true,
+  store: MongoStore.create({
+    mongoUrl: process.env.MONGODB_URI
+  }),
+  //cookie: { maxAge: new Date ( Date.now() + (3600000) ) } 
+  // Date.now() - 30 * 24 * 60 * 60 * 1000
+}));
+
+app.use(passport.initialize());
+app.use(passport.session());
 
 
-//라우팅
-const indexRouter = require('./routes/indexRoutes');
-const mainRouter = require("./routes/user");
+app.use(express.urlencoded({extended: true}));
+app.use(express.json());
+app.use(methodOverride("_method"));
+// 데이터베이스 연결
+connectDB();  
+
+// 정적 파일들
+app.use(express.static('public'));
+
+// 템플릿 엔진
+app.use(expressLayouts);
+app.set('layout', './layouts/main');
+app.set('view engine', 'ejs');
 
 
-//앱 세팅
-app.set('views', './views');
-// app.set("views", "./login/views");
-app.engine('ejs', ejsMate)
-app.set("view engine", "ejs");
-app.use(express.static(`${__dirname}/src/public`));
-app.use(cors())
 
-app.use('/', indexRouter);
-// app.use("/", home); //use -> 미들 웨어를 등록해주는 메서드.
+// 라우팅
+app.use('/', require('./routes/auth'));
+app.use('/', require('./routes/index'));
+app.use('/', require('./routes/dashboard'));
 
-// app.listen(PORT, () => {
-//     console.log(`Server is running on http://localhost:${PORT}`);
-//   });
-// module.exports = app;
+//모건
+app.use(morgan('dev'))
 
-const port = process.env.PORT || 3000;
+// 404 설정
+app.get('*', function(req, res) {
+  //res.status(404).send('404 Page Not Found.')
+  res.status(404).render('404');
+})
 
-const start = async () => {
 
-  try {        
-      await connectDB(process.env.MONGO_URI);
-      app.listen(port, () => {
-          console.log(`Server is listening on port ${port}`);
-      })
-
-  } catch (error) {
-     console.log(error); 
-  }
-}
-
-start();
+app.listen(port, () => {
+  console.log(`App listening on port ${port}`);
+});
