@@ -47,6 +47,8 @@ app.set('view engine', 'ejs');
 app.use('/', require('./routes/auth'));
 app.use('/', require('./routes/index'));
 app.use('/', require('./routes/dashboard'));
+app.use('/', require('./routes/employee'));
+app.use('/', require('./routes/worksite'));
 
 //모건
 app.use(morgan('dev'))
