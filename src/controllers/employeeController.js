@@ -9,6 +9,7 @@ const mongoose = require('mongoose');
 
 
 exports.employee = async (req, res) => {
+
     const locals = {
       title: "About - NodeJs Notes",
       description: "Free NodeJS Notes App.",
@@ -49,6 +50,7 @@ exports.postEmployee = async (req, res) => {
     try {
         req.body.user = req.user.id;
         await Employee.create(newEmployee);
+
         res.redirect('/');
     } catch (error) {
         console.log(error);
