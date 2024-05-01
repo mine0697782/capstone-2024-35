@@ -47,8 +47,9 @@ exports.postEmployee = async (req, res) => {
     });
 
     try {
+        req.body.user = req.user.id;
         await Employee.create(newEmployee);
-        res.redirect('/employee/addemployee');
+        res.redirect('/');
     } catch (error) {
         console.log(error);
     }
