@@ -7,7 +7,7 @@ const { isLoggedIn } = require('../middleware/checkAuth');
  * App Routes 
 */
 router.get('/', mainController.homepage);
-router.get('/about', mainController.about);
+router.get('/about', isLoggedIn, mainController.about);
 
 
 

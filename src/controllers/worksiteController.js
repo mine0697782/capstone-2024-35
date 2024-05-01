@@ -1,3 +1,5 @@
+const Worksite = require('../models/Worksite')
+const mongoose = require('mongoose');
 
 /**
  * GET /
@@ -9,5 +11,5 @@ exports.worksite = async (req, res) => {
     title: "About - NodeJs Notes",
     description: "Free NodeJS Notes App.",
   }
-  res.render('worksite', locals);
+  res.render('worksite/worksite', locals);
 }
