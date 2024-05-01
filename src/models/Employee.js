@@ -7,7 +7,7 @@ const EmployeeSchema = new Schema({
     type: Schema.ObjectId,
     ref: 'User'
   },
-  Name: {
+  name: {
     type: String,
     required: true,
   },

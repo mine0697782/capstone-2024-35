@@ -39,7 +39,7 @@ exports.postEmployee = async (req, res) => {
     console.log(req.body);
 
     const newEmployee = new Employee({
-        Name: req.body.Name,
+        name: req.body.name,
         sex: req.body.sex,
         local: req.body.local,
         RRN: req.body.RRN,
@@ -48,10 +48,9 @@ exports.postEmployee = async (req, res) => {
 
     try {
         await Employee.create(newEmployee);
-        res.redirect('/employee', locals);
-
+        res.redirect('/employee/addemployee');
     } catch (error) {
-        console.log('error');
+        console.log(error);
     }
     
   }  

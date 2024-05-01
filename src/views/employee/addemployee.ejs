@@ -8,15 +8,34 @@
     </div>
 </div>    
 
-<!-- 이름 -->
+<div class="col py-3">
+    <div class="row">
+        <div class="col">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="/">홈</a></li>
+                    <li class="breadcrumb-item active">새 작업자</li>
+                </ol>
+            </nav>
+        </div>
+        <div class="col text-end fw-lighter">
+            <b>userName</b>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
 <form action="/addemployee" method="POST">
 
     <div class="row form-group mb-4">
 
         <div class="col">
-            <label for="Name">이름</label>
-            <input type="text" class="form-control" id="name" name="name" value="" placeholder="Name"
-            required>
+            <label for="name">이름</label>
+            <input type="text" class="form-control" id="name" name="name" value="" placeholder="Name">
         </div>
 
         <div class="col">
