@@ -1,42 +1,36 @@
-const mongoose = require("mongoose");
-const bcrypt = require("bcryptjs");
+const mongoose = require('mongoose');
 
-const UserSchema = new mongoose.Schema({
-    name: {
-        type: String,
-        required: [true, 'Please provide name'],
-        minlength: 3,
-        maxlength: 50
-    },
-
-    email:{
-        type: String,
-        required: [true, "Please provide email"],
-        minlength: 3,
-        maxlength: 50,
-        match: [
-            /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
-            'Please provide a valid email',
-          ],
-          unique: true,
-    },
-    password: {
-        type: String,
-        required: [true, 'Please provide password'],
-        minlength: 3
-    },
+const Schema = mongoose.Schema;
+const UserSchema = new Schema({
+  googleId: {
+    type: String,
+    required: true
+  },
+  displayName: {
+    type: String,
+    required: true
+  },
+  firstName: {
+    type: String,
+    required: true
+  },
+  lastName: {
+    type: String,
+    required: true
+  },
+  //발신번호 설정 위해 가입자(사용자) 번호 필요
+  userphonenumber: {
+    type: String,
+    required: false
+  },
+  profileImage: {
+    type: String,
+    required: true
+  },
+  createdAt: {
+    type: Date,
+    default: Date.now
+  }
 });
 
-UserSchema.pre("save", async function(){
-    const salt = await bcrypt.genSalt(10);
-    this.password = await bcrypt.hash(this.password, salt);
-})
-
-
-
-UserSchema.methods.comparePassword = async function(candidatePassword){
-    const isMatch = await bcrypt.compare(candidatePassword, this.password);
-    return isMatch;
-}
-
-module.exports = mongoose.model("User", UserSchema);
+module.exports = mongoose.model('User', UserSchema);
