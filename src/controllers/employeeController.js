@@ -10,11 +10,19 @@ const mongoose = require('mongoose');
 
 exports.employee = async (req, res) => {
 
+    const messages = await req.flash('info');
+
     const locals = {
-      title: "About - NodeJs Notes",
-      description: "Free NodeJS Notes App.",
+      title: "About - NodeJs",
+      description: "Free NodeJS User Management System.",
     }
-    res.render('employee/employee', locals);
+//페이지에 보여줄 작업자 수
+    try {
+      const employees = await Employee.find({}).limit(1);
+      res.render('employee/employee', { locals, messages, employees } );
+    } catch (error) {
+      console.log(error);
+    }
   }
 
 /**
@@ -50,6 +58,7 @@ exports.postEmployee = async (req, res) => {
     try {
         req.body.user = req.user.id;
         await Employee.create(newEmployee);
+        await req.flash('info', '새 작업자가 추가되었습니다.')
 
         res.redirect('/');
     } catch (error) {
