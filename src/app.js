@@ -3,7 +3,7 @@ require('dotenv').config();
 const express = require('express');
 const expressLayouts = require('express-ejs-layouts');
 const methodOverride = require("method-override");
-const { flash } = require('express-flash-message');
+const flash = require('connect-flash');
 const connectDB = require('./config/db');
 const session = require('express-session');
 const passport = require('passport');
@@ -20,9 +20,14 @@ app.use(session({
   store: MongoStore.create({
     mongoUrl: process.env.MONGODB_URI
   }),
+  cookie: {
+    maxAge: 1000 * 60 * 60 * 24 * 7, //1주
+  }
   //cookie: { maxAge: new Date ( Date.now() + (3600000) ) } 
   // Date.now() - 30 * 24 * 60 * 60 * 1000
 }));
+
+app.use(flash({ sessionKeyName: 'flashMessage' }));
 
 app.use(passport.initialize());
 app.use(passport.session());
