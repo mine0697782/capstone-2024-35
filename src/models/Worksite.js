@@ -47,11 +47,13 @@ const WorksiteSchema = new Schema({
     type: Number,
     required: true,
   },
-  //채용 확정된 인원 (a fixed number of people to be hired{nopr과 유사성을 위해 noph로 설정}) 
-  noph: {
-    type: Number,
-    required: false,
-  },
+  //채용 확정된 인원
+  hired: [
+    {
+      type: Schema.ObjectId,
+      ref: 'Employee',
+    }
+  ],
   //현장 내용 예. 5시간 작업 예상, 경력자 필수 등
   worksitenote: {
     type: String,
