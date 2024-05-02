@@ -7,23 +7,38 @@ const WorksiteSchema = new Schema({
     type: Schema.ObjectId,
     ref: 'User'
   },
+  // 현장명
+  name: {
+    type: String,
+    required: true,
+  },
+  // 현장 상세 주소
   address: {
     type: String,
     required: true,
   },
+  // 현장 소재지
   local: {
     type: String,
     required: true,
   },
+  // 급여
   salary: {
     type: String,
     required: true,
   },
+  // 업종
   worktype: {
     type: String,
     required: true,
   },
+  // 날짜
   date: {
+    type: Date,
+    required: true,
+  },
+  // 끝나는 시간
+  end: {
     type: Date,
     required: true,
   },
@@ -42,10 +57,12 @@ const WorksiteSchema = new Schema({
     type: String,
     required: false,
   },
+  // 최초 작성일
   createdAt: {
     type: Date,
     default: Date.now()
   },
+  // 최근 수정일
   updatedAt: {
     type: Date,
     default: Date.now()
