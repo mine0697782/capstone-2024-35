@@ -57,7 +57,7 @@ exports.postWorksite = async (req, res) => {
   try {
       req.body.user = req.user.id;
       await Worksite.create(newWorksite);
-      await req.flash('info', '새 작업자가 추가되었습니다.')
+      await req.flash('info', '새 작업현장이 추가되었습니다.')
 
       res.redirect('/worksite');
   } catch (error) {
