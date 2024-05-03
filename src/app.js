@@ -27,6 +27,10 @@ app.use(session({
   // Date.now() - 30 * 24 * 60 * 60 * 1000
 }));
 
+
+//모건
+app.use(morgan('dev'))
+
 app.use(flash({ sessionKeyName: 'flashMessage' }));
 
 app.use(passport.initialize());
@@ -56,8 +60,6 @@ app.use('/', require('./routes/dashboard'));
 app.use('/', require('./routes/employee'));
 app.use('/', require('./routes/worksite'));
 
-//모건
-app.use(morgan('dev'))
 
 // 404 설정
 app.get('*', function(req, res) {
