@@ -18,7 +18,7 @@ exports.employee = async (req, res) => {
     }
 //페이지에 보여줄 작업자 수
     try {
-      const employees = await Employee.find({}).limit(1);
+      const employees = await Employee.find({}).limit(22);
       res.render('employee/employee', { locals, messages, employees } );
     } catch (error) {
       console.log(error);
@@ -60,7 +60,7 @@ exports.postEmployee = async (req, res) => {
         await Employee.create(newEmployee);
         await req.flash('info', '새 작업자가 추가되었습니다.')
 
-        res.redirect('/');
+        res.redirect('/employee');
     } catch (error) {
         console.log(error);
     }
