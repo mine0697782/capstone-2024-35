@@ -60,7 +60,7 @@ exports.postEmployee = async (req, res) => {
         await Employee.create(newEmployee);
         await req.flash('info', '새 작업자가 추가되었습니다.')
 
-        res.redirect('/');
+        res.redirect('/employee');
     } catch (error) {
         console.log(error);
     }
