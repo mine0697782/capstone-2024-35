@@ -18,7 +18,7 @@ exports.employee = async (req, res) => {
     }
 //페이지에 보여줄 작업자 수
     try {
-      const employees = await Employee.find({})//.limit(22);
+      const employees = await Employee.find({})//.limit(1);
       res.render('employee/employee', { locals, messages, employees } );
     } catch (error) {
       console.log(error);
