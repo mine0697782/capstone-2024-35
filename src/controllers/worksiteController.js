@@ -7,9 +7,19 @@ const mongoose = require('mongoose');
 */
 
 exports.worksite = async (req, res) => {
+
+  const messages = await req.flash('info');
+
   const locals = {
     title: "About - NodeJs Notes",
     description: "Free NodeJS Notes App.",
   }
-  res.render('worksite/worksite', locals);
+
+  try {
+    const worksites = await Worksite.find({})//.limit(1);
+    res.render('worksite/worksite', { locals, messages, worksites } );
+  } catch (error) {
+    console.log(error);
+  }
+
 }
