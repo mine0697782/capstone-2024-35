@@ -23,3 +23,45 @@ exports.worksite = async (req, res) => {
   }
 
 }
+
+exports.addWorksite = async (req, res) => {
+  const locals = {
+    title: "Add New Worksite",
+    description: "Free Nodejs User Management System.",
+  }
+  res.render('worksite/addworksite', locals);
+}
+
+/**
+* POST /
+* 새로운 근무지 생성
+*/
+
+exports.postWorksite = async (req, res) => {
+  console.log(req.body);
+
+  const newWorksite = new Worksite({
+      name: req.body.name,
+      address: req.body.address,
+      local: req.body.local,
+      salary: req.body.salary,
+      worktype: req.body.worktype,
+      // date: req.body.date,
+      date: new Date(),
+      // hour: req.body.hour,
+      end: new Date(),
+      nopr: req.body.nopr,
+      worksitenote: req.body.worksitenote,
+  });
+
+  try {
+      req.body.user = req.user.id;
+      await Worksite.create(newWorksite);
+      await req.flash('info', '새 작업현장이 추가되었습니다.')
+
+      res.redirect('/worksite');
+  } catch (error) {
+      console.log(error);
+  }
+  
+}  
