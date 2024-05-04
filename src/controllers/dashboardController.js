@@ -8,8 +8,8 @@ const mongoose = require("mongoose");
  */
 exports.dashboard = async (req, res) => {
 
-  let perPage = 12;
-  let page = req.query.page || 1;
+  let perPage1 = 12;
+  let page1 = req.query.page || 1;
 
   const locals = {
     title: "Dashboard",
@@ -28,8 +28,8 @@ exports.dashboard = async (req, res) => {
         },
       }
       ])
-    .skip(perPage * page - perPage)
-    .limit(perPage)
+    .skip(perPage1 * page1 - perPage1)
+    .limit(perPage1)
     .exec(); 
 //수를 세는 섹터
     const count = await Note.count();
@@ -39,8 +39,8 @@ exports.dashboard = async (req, res) => {
       locals,
       notes,
       layout: "../views/layouts/dashboard",
-      current: page,
-      pages: Math.ceil(count / perPage)
+      current: page1,
+      pages: Math.ceil(count / perPage1)
     });
  
     // Original Code

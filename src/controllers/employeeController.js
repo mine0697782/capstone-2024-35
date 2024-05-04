@@ -16,10 +16,26 @@ exports.employee = async (req, res) => {
       title: "About - NodeJs",
       description: "Free NodeJS User Management System.",
     }
+
+    let perPage = 12;
+    let page = req.query.page || 1;
+
+
 //페이지에 보여줄 작업자 수
     try {
-      const employees = await Employee.find({})//.limit(1);
-      res.render('employee/employee', { locals, messages, employees } );
+      const employees = await Employee.aggregate([ { $sort: {updatedAt: -1 } } ])
+        .skip(perPage * page - perPage)
+        .limit(perPage)
+        .exec();
+      const count = await Employee.countDocuments({});
+
+      res.render('employee/employee', {
+        locals,
+        employees,
+        current: page,
+        pages: Math.ceil(count / perPage),
+        messages
+      });
     } catch (error) {
       console.log(error);
     }
