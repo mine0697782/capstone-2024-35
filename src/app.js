@@ -9,6 +9,11 @@ const session = require('express-session');
 const passport = require('passport');
 const MongoStore = require('connect-mongo');
 const morgan = require('morgan');
+import('ejs-lint').then(ejsLint => {
+
+}).catch(err => {
+  console.error('모듈을 불러오는 동안 오류가 발생했습니다.', err)
+});
 
 const app = express();
 const port = 5000 || process.env.PORT;
