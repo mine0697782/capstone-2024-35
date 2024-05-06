@@ -82,3 +82,27 @@ exports.postEmployee = async (req, res) => {
     }
     
   }  
+
+/**
+ * GET /
+ * 노동자 데이터
+ *  */
+
+  exports.viewEmployee = async (req, res) => {
+
+    try{
+      const employee = await Employee.findOne({ _id: req.params.id })
+
+      const locals = {
+        title: "View Employee Data",
+        description: "Free NodeJs User Management System",
+      };
+
+      res.render('employee/viewemployee', {
+        locals,
+        employee
+      })
+    } catch(error) {
+      console.log(error);
+    }
+  }
