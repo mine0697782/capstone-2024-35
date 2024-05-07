@@ -15,7 +15,7 @@ const makeSeeds = async () => {
     // 근로자 콜렉션 초기화
     await Employee.deleteMany({})
     for (i=1; i<=20; i++) {
-        const newEmp = new Employee({user: user, name: '근로자'+i, sex: '남', local: '경기도', RRN: '000000-0000000', phonenumber: '010-1234-5678'})
+        const newEmp = new Employee({user: user, name: '근로자'+i, sex: '남', local: '경기도', RRN: '000101-0000000', phonenumber: '010-1234-5678'})
         await newEmp.save()
     }
 
@@ -33,11 +33,12 @@ const makeSeeds = async () => {
         const newWork = new Worksite({user: user, name: '임시현장'+i, address: '국민대학교 미래관', local: '서울 성북구', salary: '110000', worktype: '이삿짐 운반', date: date, end: end, nopr: 10})
         
         // 1~3번 현장에 랜덤 인부 배정
-        
         if (i <= 3) {
             for (j=1; j<=3; j++) {
                 let ran = Math.floor(Math.random()*emps.length)
                 newWork.hired.push(emps[ran])
+                const career = new Career({employee: emps[ran], worksite: newWork})
+                await career.save()
             }
             
         }
