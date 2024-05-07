@@ -29,6 +29,7 @@ exports.addWorksite = async (req, res) => {
     title: "Add New Worksite",
     description: "Free Nodejs User Management System.",
   }
+  // console.log(req.user)
   res.render('worksite/addworksite', locals);
 }
 
@@ -38,9 +39,11 @@ exports.addWorksite = async (req, res) => {
 */
 
 exports.postWorksite = async (req, res) => {
+  console.log('post worksite req-body')
   console.log(req.body);
 
   const newWorksite = new Worksite({
+      user: req.user._id,
       name: req.body.name,
       address: req.body.address,
       local: req.body.local,
@@ -65,3 +68,15 @@ exports.postWorksite = async (req, res) => {
   }
   
 }  
+
+exports.showWorksite = async (req, res) => {
+  const { id } = req.params;
+  const worksite = await Worksite.findById(id).populate('hired')
+  console.log(worksite)
+  res.render('worksite/worksiteDetail', { worksite })
+}
+
+exports.matchToWorksite = async (req, res) => {
+  console.log('match to worksite')
+
+}
