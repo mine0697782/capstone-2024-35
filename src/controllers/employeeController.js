@@ -135,27 +135,44 @@ exports.postEmployee = async (req, res) => {
  * GET /
  * 노동자 데이터 업데이트
  *  */
-
-    exports.editPost = async (req, res) => {
-
+    exports.editPostemployee = async (req, res) => {
       try {
-
-        await Employee.findByIdAndUpdate(req.params.id, {
-          name: req.body.name,
-          sex: req.body.sex,
-          local: req.body.local,
-          RRN: req.body.RRN,
-          phonenumber: req.body.phonenumber,
-          // details: req.body.details,
-          updatedAt: Date.now(),
-        });
-        await res.redirect(`/editemployee/${req.params.id}`);
-
-        console.log('redirected');
+        await Employee.findOneAndUpdate(
+          { _id: req.params.id },
+          { name: req.body.name,
+            sex: req.body.sex,
+            local: req.body.local,
+            RRN: req.body.RRN,
+            phonenumber: req.body.phonenumber,
+            // details: req.body.details,
+            updatedAt: Date.now(),
+          }
+        ).where({ user: req.user.id });
+        res.redirect("/employee");
       } catch (error) {
         console.log(error);
       }
     };
+    // exports.editPostemployee = async (req, res) => {
+
+    //   try {
+
+    //     await Employee.findByIdAndUpdate(req.params.id, {
+    //       name: req.body.name,
+    //       sex: req.body.sex,
+    //       local: req.body.local,
+    //       RRN: req.body.RRN,
+    //       phonenumber: req.body.phonenumber,
+    //       // details: req.body.details,
+    //       updatedAt: Date.now(),
+    //     });
+    //     await res.redirect(`/editemployee/${req.params.id}`);
+
+    //     console.log('redirected');
+    //   } catch (error) {
+    //     console.log(error);
+    //   }
+    // };
 
        /**
  * DELETE /

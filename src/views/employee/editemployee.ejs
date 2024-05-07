@@ -13,7 +13,7 @@
         <div class="col">
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="/employee">홈</a></li>
+                    <li class="breadcrumb-item"><a href="/employee">작업자</a></li>
                     <li class="breadcrumb-item active"><%= employee.name %></li>
                 </ol>
             </nav>
@@ -30,7 +30,7 @@
 
 
 
-<form action="/editemployee/<%= employee._id %>?_method=PUT" method="POST">
+<form action="/edit/<%= employee._id %>?_method=PUT" method="POST">
 
     <div class="row form-group mb-4">
 
@@ -88,14 +88,14 @@
             </div>
             <div class="modal-body">
                 <p>
-                    이는 작업자 <b class="fw-bold"><%= employee.name %></b>의 기록을 제거할 것 입니다 <br/>
+                    이는 작업자의 기록을 제거할 것 입니다 <b class="fw-bold"><%= employee.name %></b><br/>
                     확실합니까? 
                 </p>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">닫기</button>
 
-                <form action="/editemployee/<%= employee._id %>?_method=DELETE" method="POST" class="position-relative">
+                <form action="/edit/<%= employee._id %>?_method=DELETE" method="POST" class="position-relative">
                     <button type="submit" class="btn btn-primary">네, 삭제하겠습니다</button>
                 </form>
 
