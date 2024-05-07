@@ -5,7 +5,8 @@ const Schema = mongoose.Schema;
 const WorksiteSchema = new Schema({
   user: {
     type: Schema.ObjectId,
-    ref: 'User'
+    ref: 'User',
+    required: true,
   },
   // 현장명
   name: {
