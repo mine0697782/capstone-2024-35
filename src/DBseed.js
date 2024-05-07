@@ -26,8 +26,21 @@ const makeSeeds = async () => {
     // date.setHours(8)
     const end = new Date(date)
     end.setHours(end.getHours()+8)
+
+
+    const emps = await Employee.find({})
     for (i=1; i<=10; i++) {
         const newWork = new Worksite({user: user, name: '임시현장'+i, address: '국민대학교 미래관', local: '서울 성북구', salary: '110000', worktype: '이삿짐 운반', date: date, end: end, nopr: 10})
+        
+        // 1~3번 현장에 랜덤 인부 배정
+        
+        if (i <= 3) {
+            for (j=1; j<=3; j++) {
+                let ran = Math.floor(Math.random()*emps.length)
+                newWork.hired.push(emps[ran])
+            }
+            
+        }
         await newWork.save()
     }
 
