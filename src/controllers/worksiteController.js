@@ -86,7 +86,7 @@ exports.showWorksite = async (req, res) => {
   const { id } = req.params;
   const worksite = await Worksite.findById(id).populate('hired')
   console.log(worksite)
-  res.render('worksite/worksiteDetail', { worksite })
+  res.render('worksite/worksiteDetail', { worksite, moment })
 }
 
 exports.matchToWorksite = async (req, res) => {
