@@ -2,7 +2,7 @@ require('dotenv').config();
 
 const express = require('express');
 const expressLayouts = require('express-ejs-layouts');
-const methodOverride = require("method-override");
+const methodOverride = require('method-override');
 const flash = require('connect-flash');
 const connectDB = require('./config/db');
 const session = require('express-session');

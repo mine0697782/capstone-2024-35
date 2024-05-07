@@ -64,6 +64,7 @@ exports.postEmployee = async (req, res) => {
     console.log(req.body);
 
     const newEmployee = new Employee({
+        user: req.user._id,
         name: req.body.name,
         sex: req.body.sex,
         local: req.body.local,
@@ -81,7 +82,7 @@ exports.postEmployee = async (req, res) => {
         console.log(error);
     }
     
-  }  
+  };
 
 /**
  * GET /
@@ -105,4 +106,85 @@ exports.postEmployee = async (req, res) => {
     } catch(error) {
       console.log(error);
     }
-  }
+  };
+
+  /**
+ * GET /
+ * 노동자 데이터 수정
+ *  */
+
+  exports.editEmployee = async (req, res) => {
+
+    try{
+      const employee = await Employee.findOne({ _id: req.params.id })
+
+      const locals = {
+        title: "Edit Employee Data",
+        description: "Free NodeJs User Management System",
+      };
+
+      res.render('employee/editemployee', {
+        locals,
+        employee
+      })
+    } catch(error) {
+      console.log(error);
+    }
+  };
+
+    /**
+ * GET /
+ * 노동자 데이터 업데이트
+ *  */
+    exports.editPostemployee = async (req, res) => {
+      try {
+        await Employee.findOneAndUpdate(
+          { _id: req.params.id },
+          { name: req.body.name,
+            sex: req.body.sex,
+            local: req.body.local,
+            RRN: req.body.RRN,
+            phonenumber: req.body.phonenumber,
+            // details: req.body.details,
+            updatedAt: Date.now(),
+          }
+        ).where({ user: req.user.id });
+        res.redirect("/employee");
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    // exports.editPostemployee = async (req, res) => {
+
+    //   try {
+
+    //     await Employee.findByIdAndUpdate(req.params.id, {
+    //       name: req.body.name,
+    //       sex: req.body.sex,
+    //       local: req.body.local,
+    //       RRN: req.body.RRN,
+    //       phonenumber: req.body.phonenumber,
+    //       // details: req.body.details,
+    //       updatedAt: Date.now(),
+    //     });
+    //     await res.redirect(`/editemployee/${req.params.id}`);
+
+    //     console.log('redirected');
+    //   } catch (error) {
+    //     console.log(error);
+    //   }
+    // };
+
+       /**
+ * DELETE /
+ * 노동자 데이터 삭제
+ *  */
+
+       exports.deleteEmployee = async (req, res) => {
+        try {
+          await Employee.deleteOne({ _id: req.params.id });
+          res.redirect("/employee")
+        } catch (error) {
+          console.log(error);
+        }
+      };
