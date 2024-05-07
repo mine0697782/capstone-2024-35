@@ -64,6 +64,7 @@ exports.postEmployee = async (req, res) => {
     console.log(req.body);
 
     const newEmployee = new Employee({
+        user: req.user._id,
         name: req.body.name,
         sex: req.body.sex,
         local: req.body.local,

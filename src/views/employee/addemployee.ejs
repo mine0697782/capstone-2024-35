@@ -13,14 +13,13 @@
         <div class="col">
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="/">홈</a></li>
+                    <li class="breadcrumb-item"><a href="/employee">작업자</a></li>
                     <li class="breadcrumb-item active">새 작업자</li>
                 </ol>
             </nav>
         </div>
         <div class="col text-end fw-lighter">
-            <b>마지막 업데이트: <%= new Date(employee.updatedAt).toUTCString() %></b>
-            <b>UserId:</b> <%= employee._id %>
+            <b>userName</b>
         </div>
     </div>
 </div>
@@ -35,8 +34,9 @@
     <div class="row form-group mb-4">
 
         <div class="col">
-            <label for="name">이름</label>
-            <input type="text" class="form-control" id="name" name="name" value="" placeholder="Name">
+            <label for="employeename">이름</label>
+            <input type="text" class="form-control" id="name" name="name" value="" placeholder="Name"
+            required>
         </div>
 
         <div class="col">
