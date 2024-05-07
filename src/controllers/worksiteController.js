@@ -1,5 +1,9 @@
 const Worksite = require('../models/Worksite')
 const mongoose = require('mongoose');
+const moment = require('moment')
+require("moment-timezone")
+require("moment/locale/ko");
+moment.locale('ko')
 
 /**
  * GET /
@@ -15,9 +19,18 @@ exports.worksite = async (req, res) => {
     description: "Free NodeJS Notes App.",
   }
 
+  let perPage = 12;
+  let page = req.query.page || 1;
+
+//페이지에 보여줄 작업자 수
   try {
-    const worksites = await Worksite.find({})//.limit(1);
-    res.render('worksite/worksite', { locals, messages, worksites } );
+    const worksites = await Worksite.aggregate([ { $sort: {updatedAt: -1 } } ])
+      .skip(perPage * page - perPage)
+      .limit(perPage)
+      .exec();
+    const count = await Worksite.countDocuments({});
+
+    res.render('worksite/worksite', { locals, messages, worksites, pages: Math.ceil(count / perPage), current: page, moment: moment } );
   } catch (error) {
     console.log(error);
   }
