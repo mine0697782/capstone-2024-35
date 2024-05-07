@@ -32,7 +32,7 @@ exports.dashboard = async (req, res) => {
     .limit(perPage1)
     .exec(); 
 //수를 세는 섹터
-    const count = await Note.count();
+    const count1 = await Note.count();
 
     res.render('dashboard/index', {
       userName: req.user.firstName,
@@ -40,7 +40,7 @@ exports.dashboard = async (req, res) => {
       notes,
       layout: "../views/layouts/dashboard",
       current: page1,
-      pages: Math.ceil(count / perPage1)
+      pages: Math.ceil(count1 / perPage1)
     });
  
     // Original Code
