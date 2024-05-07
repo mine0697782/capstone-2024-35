@@ -23,7 +23,7 @@
                 <th scope="col">주소</th>
                 <th scope="col">소재지</th>
                 <th scope="col">급여</th>
-                <th scope="col">업종</th>
+                <th scope="col">업무</th>
                 <th scope="col">날짜</th>
                 <th scope="col">근무시간</th>
                 <th scope="col">필요인원</th>
@@ -43,7 +43,7 @@
                 <td><%= moment(element.date).format("YYYY년 MMMM Do a hh:mm") %></td>
                 <td><%= moment(element.end).diff(element.date, 'hours') %></td>
                 <td><%= element.hired.length %> / <%= element.nopr %></td>
-                <td><%= element.updateAt %></td>
+                <td><%= moment(element.updateAt).format("YYYY년 MMMM Do a hh:mm") %></td>
                 <td class="text-end">
 
                     <div class="d-flex flex-row justify-content-end gap-2">
