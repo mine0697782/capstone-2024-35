@@ -8,6 +8,12 @@
     </div>
 </div>    
 
+<form class="nav col-12 col-md-auto flex-fill mb-2 justify-content-center mb-md-0" role="search" method="POST"
+  action="/search"> 
+    <input type="search" name="searchTerm" class="form-control form-control-dark w-100 rounded-0 border-5"
+    placeholder="검색" aria-label="Search">
+  </form>
+
 <% messages.forEach(element => { %>
     <div class="alert alert-success alert-dismissible fade show" role="alert">
         <%= element %>

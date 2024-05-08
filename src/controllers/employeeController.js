@@ -190,3 +190,34 @@ exports.postEmployee = async (req, res) => {
           console.log(error);
         }
       };
+
+             /**
+ * Get /
+ * 노동자 데이터 검색
+ *  */
+
+        exports.searchEmployee = async (req, res) => {
+          const locals = {
+            title: "Search Employee Data",
+            description: "Free NodeJs User Management System",
+          };
+
+          try {
+            let searchTerm = req.body.searchTerm;
+            const searchNoSpcialChar = searchTerm.replace(/[^a-zA-Z0-9]/g, "");
+            const employees = await Employee.find({
+              $or: [
+                { name: { $regex: new RegExp(searchNoSpcialChar, "i") }},
+
+            ],
+          });
+
+          res.render("employee/searchemployee", {
+            employees,
+            locals,
+          });
+
+          } catch (error) {
+            console.log(error);
+          }
+        };
