@@ -125,26 +125,26 @@
                 <td><%= element.sex %></td>
                 <td><%= element.phonenumber %></td>
                 <td><%= element.local %></td>
-                <td><%= element.age %></td>
+                <td><%= calcAge(element.RRN) %></td>
                 <td><%= element.RRN %></td>
                 
                 <td class="text-end">
 
                     <div class="d-flex flex-row justify-content-end gap-2">
 
-                        <a href="/view/<%= element._id %>" type="button" class="btn btn-primary btn-small">
+                        <!-- <a href="/view/<%= element._id %>" type="button" class="btn btn-primary btn-small">
                             <i class="bi bi-eye"></i>
-                        </a>
+                        </a> -->
 
-                        <a href="/edit/<%= element._id %>" type="button" class="btn btn-warning btn-small">
+                        <!-- <a href="/edit/<%= element._id %>" type="button" class="btn btn-warning btn-small">
                             <i class="bi bi-pencil"></i>
-                        </a>
+                        </a> -->
 
-                        <form action="/edit/<%= element._id %>?_method=DELETE" method="POST" class="position-relative">
+                        <!-- <form action="/edit/<%= element._id %>?_method=DELETE" method="POST" class="position-relative">
                             <button type="submit" class="btn btn-danger btn-small">
                                 <i class="bi bi-person-x"></i>
                             </button>
-                        </form>
+                        </form> -->
                             
                     </div>
                 </td>
