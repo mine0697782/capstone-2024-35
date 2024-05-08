@@ -1,6 +1,7 @@
 const Employee = require('../models/Employee')
 const mongoose = require('mongoose');
 const Career = require('../models/Career')
+const calculateAge = require('../public/js/calcAge')
 
 
 /**
@@ -94,7 +95,7 @@ exports.postEmployee = async (req, res) => {
 
     try{
       const employee = await Employee.findOne({ _id: req.params.id })
-
+      
       const locals = {
         title: "View Employee Data",
         description: "Free NodeJs User Management System",
@@ -103,7 +104,8 @@ exports.postEmployee = async (req, res) => {
       // console.log(careers)
       res.render('employee/viewemployee', {
         locals,
-        employee
+        employee,
+        calculateAge,
       })
     } catch(error) {
       console.log(error);
