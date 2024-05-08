@@ -13,5 +13,7 @@ router.get('/edit/:id', isLoggedIn, employeeController.editEmployee);
 router.put('/edit/:id', isLoggedIn, employeeController.editPostemployee);
 router.delete('/edit/:id', isLoggedIn, employeeController.deleteEmployee);
 
+router.post('/search', isLoggedIn, employeeController.searchEmployee);
+
 
 module.exports = router;
