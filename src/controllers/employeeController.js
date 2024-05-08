@@ -1,5 +1,6 @@
 const Employee = require('../models/Employee')
 const mongoose = require('mongoose');
+const Career = require('../models/Career')
 
 
 /**
@@ -98,7 +99,8 @@ exports.postEmployee = async (req, res) => {
         title: "View Employee Data",
         description: "Free NodeJs User Management System",
       };
-
+      // const careers = await Career.find({employee: req.params.id}).populate('worksite')
+      // console.log(careers)
       res.render('employee/viewemployee', {
         locals,
         employee

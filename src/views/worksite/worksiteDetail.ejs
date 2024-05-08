@@ -1,6 +1,76 @@
 <div class="d-flex justify-content-between flex-wrap flex-md nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-    <h3 class="h2">현재 배정된 근무자</h3>
+    <h3 class="h2"><%= worksite.name %></h3>
+</div>   
 
+<div class="col py-3">
+
+    <div class="row">
+        <div class="col">
+
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="/worksite">업무목록</a></li>
+                    <li class="breadcrumb-item active"><%= worksite.name  %></li>
+                </ol>
+            </nav>
+        </div>
+        <div class="col text-end fw-lighter">
+            <b>마지막 업데이트: </b><%= moment(worksite.updatedAt).format("YYYY년 MMMM Do (dd) a hh:mm") %> <b>(<%= moment(worksite.updatedAt).fromNow() %>)</b><br>
+            <b>UserId:</b> <%= worksite._id %>
+        </div>
+    </div>
+
+</div>
+<div class="container pb-5">
+<ul class="list-group list-group-horizontal">
+        <li class="list-group-item flex-fill col-4"> 
+            <div class="row">
+                <div class="col-3"><b>현장명</b></div>
+                <div class="col-9"><%= worksite.name %></div>
+            </div>
+        </li>
+
+        <li class="list-group-item flex-fill col-4">
+            <div class="row">
+                <div class="col-3"><b>주소</b></div>
+                <div class="col-9"><%= worksite.address %></div>
+            </div>
+        </li>
+
+        <li class="list-group-item flex-fill col-4">
+            <div class="row">
+                <div class="col-3"><b>날짜</b></div>
+                <div class="col-9"><%= moment(worksite.date).format("YYYY년 MMMM Do (dd) a hh:mm")%></div>
+            </div>
+        </li>
+    </ul>
+<ul class="list-group list-group-horizontal">
+    
+    <li class="list-group-item flex-fill col-4">
+        <div class="row">
+            <div class="col-3" style="max-width: 140px"> <b>업무</b></div>
+            <div class="col-9"><%= worksite.worktype %></div>
+        </div>
+    </li>
+
+    <li class="list-group-item flex-fill col-4">
+        <div class="row">
+            <div class="col-3" style="max-width: 140px"> <b>근무시간</b></div>
+            <div class="col-9"><%= moment(worksite.end).diff(worksite.date, 'hours')%></div>
+        </div>
+    </li>
+
+    <li class="list-group-item flex-fill col-4">
+        <div class="row">
+            <div class="col-3" style="max-width: 140px"> <b>급여</b></div>
+            <div class="col-9"><%= worksite.salary %> 원</div>
+        </div>
+    </li>
+</ul>
+</div>
+
+<div class="d-flex justify-content-between flex-wrap flex-md nowrap align-items-center pb-2 mb-3 border-bottom">
+    <h3 class="h3">인원수 :  <%= worksite.hired.length %> / <%= worksite.nopr %></h3>
     <div class="btn-toolbar mb-2 mb-md-0">
         <div class="btn-group me-2">
             <a href="/matchToWorksite" class="btn btn-sm btn-outline-secondary">+ Hire Employee</a>
