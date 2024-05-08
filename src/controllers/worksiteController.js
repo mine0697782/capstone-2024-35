@@ -2,6 +2,7 @@ const Worksite = require('../models/Worksite')
 const mongoose = require('mongoose');
 const moment = require('moment');
 const calcAge = require('../public/js/calcAge');
+const Employee = require('../models/Employee');
 require("moment-timezone")
 require("moment/locale/ko");
 moment.locale('ko')
@@ -91,6 +92,12 @@ exports.showWorksite = async (req, res) => {
 }
 
 exports.matchToWorksite = async (req, res) => {
-  console.log('match to worksite')
-
+  const { id } = req.params;
+  const uid = req.user.id
+  const worksite = await Worksite.findById(id)
+  const employees = await Employee.find({user: uid, _id: { $nin: worksite.hired }})
+  // console.log('match to worksite')
+  // console.log(worksite)
+  console.log(employees)
+  res.render('worksite/matchToWorksite', { worksite, employees, calcAge, moment })
 }

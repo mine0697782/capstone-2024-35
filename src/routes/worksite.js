@@ -6,7 +6,7 @@ const worksiteController = require('../controllers/worksiteController');
 router.get('/worksite', isLoggedIn, worksiteController.worksite);
 router.get('/worksite/:id', isLoggedIn, worksiteController.showWorksite)
 router.get('/addworksite', isLoggedIn, worksiteController.addWorksite);
-// router.get('/matchToWorksite', isLoggedIn, worksiteController.matchToWorksite);
+router.get('/worksite/:id/hire', isLoggedIn, worksiteController.matchToWorksite);
 router.post('/addworksite', isLoggedIn, worksiteController.postWorksite);
 
 
