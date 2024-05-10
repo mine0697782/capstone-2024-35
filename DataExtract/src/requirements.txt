@@ -1,8 +1,8 @@
 torch
-transformers
+transformers[torch]
 datasets
 seqeval
 kobert-transformers
-git+https://github.com/SKTBrain/KoBERT.git@master#egg=kobert
+onnxruntime==1.8.0
+git+https://github.com/SKTBrain/KoBERT.git@master
 git+https://github.com/SKTBrain/KoBERT.git#egg=kobert_tokenizer&subdirectory=kobert_hf
-scikit-learn
