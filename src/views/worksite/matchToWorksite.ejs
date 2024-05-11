@@ -1,26 +1,3 @@
-<!-- 모달 -->
-<div class="modal fade" id="exampleModal" data-bs-backdrop="static" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">모달 제목</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          여기에 모달 내용 입력
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">닫기</button>
-          <button type="button" class="btn btn-primary">저장하기</button>
-        </div>
-      </div>
-    </div>
-  </div>
-  
-
-
-
-
 <div class="d-flex justify-content-between flex-wrap flex-md nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
     <h3 class="h2"><%= worksite.name %></h3>
 </div>   
@@ -96,17 +73,19 @@
     <h3 class="h3">인원수 :  <%= worksite.hired.length %> / <%= worksite.nopr %></h3>
     <div class="btn-toolbar mb-2 mb-md-0">
         <!-- <button onclick="location.href='/worksite/<%= worksite._id %>/hire'" type="button" class="btn btn-group me-2 btn-sm btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#exampleModal"> -->
-        <button onclick="location.href='/worksite/<%= worksite._id %>/hire'" type="button" class="btn btn-group me-2 btn-sm btn-outline-secondary">
-            + Hire Employee
+        <button onclick="location.href='/worksite/<%= worksite._id %>'" type="button" class="btn btn-group me-2 btn-sm btn-outline-secondary">
+            뒤로가기
             <!-- <a href="/worksite/<%= worksite._id %>/hire" class="btn btn-sm btn-outline-secondary">+ Hire Employee</a> -->
         </button>
     </div>
 </div>   
 
+  
 <div class="table-responsive">
-    <table class="table table-striped table-sm">
+    <table class="table table-striped table-md">
         <thead>
             <tr>
+                <!-- <th scope="col"></th> -->
                 <th scope="col">이름</th>
                 <th scope="col">성별</th>
                 <th scope="col">전화번호</th>
@@ -120,35 +99,40 @@
         </thead>
 
         <tbody>
-            <% worksite.hired.forEach(element => { %>
+            <% employees.forEach(element => { %>
              <tr class="align-middle">
-                <td><%= element.name %></td>
-                <td><%= element.sex %></td>
-                <td><%= element.phonenumber %></td>
-                <td><%= element.local %></td>
-                <td><%= calcAge(element.RRN) %></td>
-                <td><%= element.RRN %></td>
-                
-                <td class="text-end">
+                <!-- <td><input class="form-check-input me-1" type="checkbox" value="" id="checkbox-<%= element._id %>"></td> -->
+                <!-- <label class="form-check-label stretched-link" for="checkbox-<%= element._id %>"> -->
+                    <td><%= element.name %></td>
+                    <td><%= element.sex %></td>
+                    <td><%= element.phonenumber %></td>
+                    <td><%= element.local %></td>
+                    <td><%= calcAge(element.RRN) %></td>
+                    <td><%= element.RRN %></td>
+                    
+                    <td class="text-end">
 
-                    <div class="d-flex flex-row justify-content-end gap-2">
+                        <!-- <div class="d-flex flex-row justify-content-end gap-2"> -->
 
-                        <!-- <a href="/view/<%= element._id %>" type="button" class="btn btn-primary btn-small">
-                            <i class="bi bi-eye"></i>
-                        </a> -->
+                            <form action="POST">
+                                <a href="/worksite/<%= worksite._id %>/hire/<%= element._id %>" type="button" class="btn btn-primary btn-small">
+                                    추가하기
+                                </a>
+                            </form>
 
-                        <!-- <a href="/edit/<%= element._id %>" type="button" class="btn btn-warning btn-small">
-                            <i class="bi bi-pencil"></i>
-                        </a> -->
+                            <!-- <a href="/edit/<%= element._id %>" type="button" class="btn btn-warning btn-small">
+                                <i class="bi bi-pencil"></i>
+                            </a> -->
 
-                        <!-- <form action="/edit/<%= element._id %>?_method=DELETE" method="POST" class="position-relative">
-                            <button type="submit" class="btn btn-danger btn-small">
-                                <i class="bi bi-person-x"></i>
-                            </button>
-                        </form> -->
-                            
-                    </div>
-                </td>
+                            <!-- <form action="/edit/<%= element._id %>?_method=DELETE" method="POST" class="position-relative">
+                                <button type="submit" class="btn btn-danger btn-small">
+                                    <i class="bi bi-person-x"></i>
+                                </button>
+                            </form> -->
+                                
+                        <!-- </div> -->
+                    </td>
+                <!-- </label> -->
              </tr>
             <% }) %>
         </tbody>
@@ -156,3 +140,4 @@
     </table>
 
 </div>
+

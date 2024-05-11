@@ -14,12 +14,12 @@ def find_phone_number(text):
     return match.group() if match else "전화번호를 찾을 수 없습니다."
 
 def extract_and_combine_entities(predicted_entities):
-    entity_info = {"name": "", "location": "", "age": ""}
+    entity_info = {"name": "", "local": "", "age": ""}
     for token, tag in predicted_entities:
         if tag == 'B-PS':
             entity_info["name"] += token.strip()
         elif tag == 'B-LC':
-            entity_info["location"] += token.strip() if token != " " else token
+            entity_info["local"] += token.strip() if token != " " else token
         elif tag in ['B-QT', 'B-DT']:
             entity_info["age"] = token.strip()
     return entity_info

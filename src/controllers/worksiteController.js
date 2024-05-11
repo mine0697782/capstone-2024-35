@@ -1,6 +1,10 @@
 const Worksite = require('../models/Worksite')
+const Employee = require('../models/Employee');
+const Career = require('../models/Career')
 const mongoose = require('mongoose');
-const moment = require('moment')
+const moment = require('moment');
+const calcAge = require('../public/js/calcAge');
+
 require("moment-timezone")
 require("moment/locale/ko");
 moment.locale('ko')
@@ -86,10 +90,29 @@ exports.showWorksite = async (req, res) => {
   const { id } = req.params;
   const worksite = await Worksite.findById(id).populate('hired')
   // console.log(worksite)
-  res.render('worksite/worksiteDetail', { worksite, moment })
+  res.render('worksite/worksiteDetail', { worksite, moment, calcAge })
 }
 
 exports.matchToWorksite = async (req, res) => {
-  console.log('match to worksite')
+  const { id } = req.params;
+  const uid = req.user.id
+  const worksite = await Worksite.findById(id)
+  const employees = await Employee.find({user: uid, _id: { $nin: worksite.hired }})
+  // console.log('match to worksite')
+  // console.log(worksite)
+  // console.log(employees)
+  res.render('worksite/matchToWorksite', { worksite, employees, calcAge, moment })
+}
 
+exports.worksiteHireEmployee = async (req, res) => {
+    const { id, eid } = req.params;
+    const worksite = await Worksite.findById(id)
+    const employee = await Employee.findById(eid)
+    worksite.hired.push(employee)
+    const career = new Career({ employee, worksite })
+    await worksite.save()
+    await career.save()
+    res.redirect(`/worksite/${id}/hire`)
+    await req.flash('info', '근무자가 추가되었습니다.')
+    // console.log(career)
 }
