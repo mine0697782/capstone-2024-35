@@ -124,7 +124,33 @@ exports.worksiteHireEmployee = async (req, res) => {
 
 exports.editWorksite = async (req, res) => {
   console.log('/editworksite')
-  res.render('worksite/editWorksite')
+  const id = req.params.id;
+  const worksite = await Worksite.findById(id)
+  console.log(worksite)
+  res.render('worksite/editWorksite', { worksite, calcAge, moment })
+}
+
+exports.putWorksite = async (req, res) => {
+  console.log('/putworksite')
+  const id = req.params.id;
+  const { name, address, local, salary, worktype, date, hour, nopr, note } = req.body;
+  const datef = new Date(date)
+  await Worksite.findByIdAndUpdate(id,{
+    name: name, 
+    address: address, 
+    local: local, 
+    salary: salary, 
+    worktype: worktype, 
+    date: datef,
+    // date.setDate(date.getDate()+7)
+    end: datef.setDate(datef.getDate()+hour), 
+    nopr: nopr,
+    worksitenote: note,
+    updatedAt: Date.now()
+  })
+  const updated = await Worksite.findById(id)
+  console.log(updated)
+  res.redirect(`/worksite/${id}`)
 }
 
 exports.deleteWorksite = async (req, res) => {
