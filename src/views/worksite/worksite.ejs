@@ -71,7 +71,7 @@
                 <td><%= moment(worksite.date).format("YYYY년 MMMM Do a hh:mm") %></td>
                 <td><%= moment(worksite.end).diff(worksite.date, 'hour') %>시간</td>
                 <td><%= worksite.hired.length %> / <%= worksite.nopr %></td>
-                <td><%= moment(worksite.updateAt).format("YYYY년 MMMM Do a hh:mm") %></td>
+                <td><%= moment(worksite.updatedAt).format("YYYY년 MMMM Do a hh:mm") %></td>
                 <td class="text-end">
 
                     <div class="d-flex flex-row justify-content-end gap-2">

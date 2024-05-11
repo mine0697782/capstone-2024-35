@@ -33,7 +33,7 @@ exports.worksite = async (req, res) => {
       .limit(perPage)
       .exec();
     const count = await Worksite.countDocuments({});
-
+    // console.log(worksites)
     res.render('worksite/worksite', { locals, messages, worksites, pages: Math.ceil(count / perPage), current: page, moment: moment } );
   } catch (error) {
     console.log(error);

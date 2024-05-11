@@ -45,7 +45,7 @@
         </div>
         <div class="col text-end fw-lighter">
             <b>마지막 업데이트: </b><%= moment(worksite.updatedAt).format("YYYY년 MMMM Do (dd) a hh:mm") %> <b>(<%= moment(worksite.updatedAt).fromNow() %>)</b><br>
-            <b>UserId:</b> <%= worksite._id %>
+            <b>UserId:</b> <%= worksite.user %>
         </div>
     </div>
 
