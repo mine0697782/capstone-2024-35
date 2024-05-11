@@ -129,7 +129,12 @@ exports.editWorksite = async (req, res) => {
 
 exports.deleteWorksite = async (req, res) => {
   console.log('/deleteworksite')
-  res.render('worksite/deleteWorksite')
+  const id = req.params.id
+  const worksiteToDel = await Worksite.findById(id)
+  console.log(worksiteToDel)
+  await Worksite.findByIdAndDelete(id)
+
+  res.redirect('/worksite')
 }
 
 exports.deleteMatchedEmployee = async (req, res) => {
