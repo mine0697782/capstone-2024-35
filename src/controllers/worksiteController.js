@@ -57,6 +57,7 @@ exports.addWorksite = async (req, res) => {
 */
 
 exports.postWorksite = async (req, res) => {
+  console.log('request user : ', req.user)
   console.log('post worksite req-body')
   console.log(req.body);
 
@@ -123,7 +124,12 @@ exports.worksiteHireEmployee = async (req, res) => {
 
 exports.editWorksite = async (req, res) => {
   console.log('/editworksite')
-  res.send('edit')
+  res.render('worksite/editWorksite')
+}
+
+exports.deleteWorksite = async (req, res) => {
+  console.log('/deleteworksite')
+  res.render('worksite/deleteWorksite')
 }
 
 exports.deleteMatchedEmployee = async (req, res) => {
