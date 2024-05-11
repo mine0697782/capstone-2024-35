@@ -8,10 +8,10 @@ router.get('/worksite/add', isLoggedIn, worksiteController.addWorksite);
 router.post('/worksite/post', isLoggedIn, worksiteController.postWorksite);
 router.get('/worksite/:id', isLoggedIn, worksiteController.showWorksite);
 router.get('/worksite/:id/hire', isLoggedIn, worksiteController.matchToWorksite);
-router.get('/worksite/:id/hire/:eid', isLoggedIn, worksiteController.worksiteHireEmployee);
+router.post('/worksite/:id/hire/:eid', isLoggedIn, worksiteController.worksiteHireEmployee);
 router.get('/worksite/:id/edit', isLoggedIn, worksiteController.editWorksite);
-router.get('/worksite/:id/delete', isLoggedIn, worksiteController.deleteWorksite);
-router.get('/worksite/:id/delete/eid', isLoggedIn, worksiteController.deleteMatchedEmployee);
+router.delete('/worksite/:id/delete', isLoggedIn, worksiteController.deleteWorksite);
+router.delete('/worksite/:id/delete/:eid', isLoggedIn, worksiteController.deleteMatchedEmployee);
 // router.post('/addworksite', isLoggedIn, worksiteController.postWorksite);
 
 
