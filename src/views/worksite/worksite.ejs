@@ -3,7 +3,7 @@
 
     <div class="btn-toolbar mb-2 mb-md-0">
         <div class="btn-group me-2">
-            <a href="/addworksite" class="btn btn-sm btn-outline-secondary">+ New Worksite</a>
+            <a href="/worksite/add" class="btn btn-sm btn-outline-secondary">+ New Worksite</a>
         </div>
     </div>
 </div>    
@@ -41,7 +41,7 @@
                 <td><%= element.salary %></td>
                 <td><%= element.worktype %></td>
                 <td><%= moment(element.date).format("YYYY년 MMMM Do a hh:mm") %></td>
-                <td><%= moment(element.end).diff(element.date, 'hours') %></td>
+                <td><%= moment(element.end).diff(element.date, 'hour') %>시간</td>
                 <td><%= element.hired.length %> / <%= element.nopr %></td>
                 <td><%= moment(element.updateAt).format("YYYY년 MMMM Do a hh:mm") %></td>
                 <td class="text-end">
@@ -52,9 +52,9 @@
                             <i class="bi bi-eye"></i>
                         </a>
 
-                        <a href="/edit/<%= element._id %>" type="button" class="btn btn-warning btn-small">
+                        <!-- <a href="/edit/<%= element._id %>" type="button" class="btn btn-warning btn-small">
                             <i class="bi bi-pencil"></i>
-                        </a>
+                        </a> -->
 
                         <form action="/edit/<%= element._id %>?_method=DELETE" method="POST" class="position-relative">
                             <button type="submit" class="btn btn-danger btn-small">

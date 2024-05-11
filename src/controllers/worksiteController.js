@@ -15,7 +15,7 @@ moment.locale('ko')
 */
 
 exports.worksite = async (req, res) => {
-
+  console.log('/worksite')
   const messages = await req.flash('info');
 
   const locals = {
@@ -42,6 +42,7 @@ exports.worksite = async (req, res) => {
 }
 
 exports.addWorksite = async (req, res) => {
+  console.log('/addworksite')
   const locals = {
     title: "Add New Worksite",
     description: "Free Nodejs User Management System.",
@@ -87,6 +88,7 @@ exports.postWorksite = async (req, res) => {
 }  
 
 exports.showWorksite = async (req, res) => {
+  console.log('/showworksite')
   const { id } = req.params;
   const worksite = await Worksite.findById(id).populate('hired')
   // console.log(worksite)
@@ -94,6 +96,7 @@ exports.showWorksite = async (req, res) => {
 }
 
 exports.matchToWorksite = async (req, res) => {
+  console.log('/matchworksite')
   const { id } = req.params;
   const uid = req.user.id
   const worksite = await Worksite.findById(id)
@@ -105,14 +108,25 @@ exports.matchToWorksite = async (req, res) => {
 }
 
 exports.worksiteHireEmployee = async (req, res) => {
-    const { id, eid } = req.params;
-    const worksite = await Worksite.findById(id)
-    const employee = await Employee.findById(eid)
-    worksite.hired.push(employee)
-    const career = new Career({ employee, worksite })
-    await worksite.save()
-    await career.save()
-    res.redirect(`/worksite/${id}/hire`)
-    await req.flash('info', '근무자가 추가되었습니다.')
-    // console.log(career)
+  console.log('/worksiteHireEmployee')
+  const { id, eid } = req.params;
+  const worksite = await Worksite.findById(id)
+  const employee = await Employee.findById(eid)
+  worksite.hired.push(employee)
+  const career = new Career({ employee, worksite })
+  await worksite.save()
+  await career.save()
+  res.redirect(`/worksite/${id}/hire`)
+  await req.flash('info', '근무자가 추가되었습니다.')
+  // console.log(career)
+}
+
+exports.editWorksite = async (req, res) => {
+  console.log('/editworksite')
+  res.send('edit')
+}
+
+exports.deleteMatchedEmployee = async (req, res) => {
+  console.log('/deleteMatchedEmployee')
+  res.send('delete')
 }
