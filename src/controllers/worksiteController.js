@@ -159,11 +159,19 @@ exports.deleteWorksite = async (req, res) => {
   const worksiteToDel = await Worksite.findById(id)
   console.log(worksiteToDel)
   await Worksite.findByIdAndDelete(id)
-
   res.redirect('/worksite')
 }
 
 exports.deleteMatchedEmployee = async (req, res) => {
   console.log('/deleteMatchedEmployee')
-  res.send('delete')
+  const { id, eid } = req.params;
+  console.log('worksite.hired 업데이트 : ', await Worksite.findByIdAndUpdate(
+    id, 
+    { $pull: { hired: eid } },
+    { new: true } // 업데이트된 문서를 반환받으려면 true로 설정
+  ))
+  // const employee = await Employee.findById(eid)
+  // await req.flash('info', `${employee.name} 근무자를 삭제했습니다.`)
+  await Career.findOneAndDelete({employee: eid, worksite: id})
+  res.redirect(`/worksite/${id}`)
 }
