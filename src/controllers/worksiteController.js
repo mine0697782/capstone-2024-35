@@ -73,7 +73,7 @@ exports.postWorksite = async (req, res) => {
       // hour: req.body.hour,
       end: moment(req.body.date).add(req.body.hour, 'hours'),
       nopr: req.body.nopr,
-      worksitenote: req.body.worksitenote,
+      worksitenote: req.body.note,
   });
 
   try {
