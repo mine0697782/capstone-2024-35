@@ -28,13 +28,16 @@ exports.worksite = async (req, res) => {
 
 //페이지에 보여줄 작업자 수
   try {
-    const worksites = await Worksite.aggregate([ { $sort: {updatedAt: -1 } } ])
+    const sortField = req.query.sortField || 'name';
+    const sortOrder = req.query.sortOrder === 'asc' ? 1 : -1;
+
+    const worksites = await Worksite.aggregate([ { $sort: { [sortField]: sortOrder } } ])
       .skip(perPage * page - perPage)
       .limit(perPage)
       .exec();
     const count = await Worksite.countDocuments({});
     // console.log(worksites)
-    res.render('worksite/worksite', { locals, messages, worksites, pages: Math.ceil(count / perPage), current: page, moment: moment } );
+    res.render('worksite/worksite', { locals, messages, worksites, pages: Math.ceil(count / perPage), current: page, moment: moment, sortField, sortOrder} );
   } catch (error) {
     console.log(error);
   }
