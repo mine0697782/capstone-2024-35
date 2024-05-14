@@ -19,9 +19,6 @@
                 </ol>
             </nav>
         </div>
-        <!-- <div class="col text-end fw-lighter">
-            <b>worksite</b>
-        </div> -->
     </div>
 </div>
 
@@ -51,8 +48,11 @@
 <!-- 주민번호 -->
         <div class="col">
             <label for="salary">급여</label>
-            <input type="text" class="form-control" id="salary" name="salary" value="<%= worksite.salary %>" placeholder="salary"
-            required>
+            <div class="input-group">
+                <input type="text" class="form-control" id="salary" name="salary" value="<%= worksite.salary %>" placeholder="salary"
+                required>
+                <span class="input-group-text">₩</span>
+            </div>
         </div>
     </div>
 <!-- 전화번호 -->
@@ -63,29 +63,34 @@
             <input type="text" class="form-control" id="worktype" name="worktype" value="<%= worksite.worktype %>" placeholder="worktype"
             required>
         </div>
+
+        <div class="col">
+            <label for="nopr">필요인원</label>
+            <input type="text" class="form-control" id="nopr" name="nopr" value="<%= worksite.nopr %>" placeholder="nopr"
+            required>
+        </div>
+
     </div>
 
     <div class="row form-group mb-4">
         <div class="col">
             <label for="date">날짜</label>
-            <input type="text" class="form-control" id="date" name="date" value="<%= worksite.date %>" placeholder="date"
-            >
+            <div class="input-group date" id="datetimepicker1" date-target-input="nearest">
+                <input type="datetime-local" class="form-control datetimepicker-input" data-target="#datetimepicker1" id="date" name="date" value="<%= moment(worksite.date).format('YYYY-MM-DDTHH:mm')%>" >
+                
+                <div class="input-group-addon" data-toggle="datetimepicker" data-target="#datetimepicker1">
+                    <div class="glyphicon glyphicon-calendar"></div>
+                </div>
+            </div>
         </div>
-    </div>
 
-    <div class="row form-group mb-4">
         <div class="col">
             <label for="hour">작업시간</label>
+            <div class="input-group">
             <input type="text" class="form-control" id="hour" name="hour" value="<%= moment(worksite.end).diff(worksite.date, 'hour') %>" placeholder="hour"
             required>
-        </div>
-    </div>
-
-    <div class="row form-group mb-4">
-        <div class="col">
-            <label for="nopr">필요인원</label>
-            <input type="text" class="form-control" id="nopr" name="nopr" value="<%= worksite.nopr %>" placeholder="nopr"
-            required>
+            <span class="input-group-text">시간</span>
+            </div>
         </div>
     </div>
 

@@ -48,7 +48,7 @@ exports.addWorksite = async (req, res) => {
     description: "Free Nodejs User Management System.",
   }
   // console.log(req.user)
-  res.render('worksite/addworksite', locals);
+  res.render('worksite/addworksite', {locals, moment});
 }
 
 /**
@@ -69,9 +69,9 @@ exports.postWorksite = async (req, res) => {
       salary: req.body.salary,
       worktype: req.body.worktype,
       // date: req.body.date,
-      date: new Date(),
+      date: moment(req.body.date),
       // hour: req.body.hour,
-      end: new Date(),
+      end: moment(req.body.date).add(req.body.hour, 'hours'),
       nopr: req.body.nopr,
       worksitenote: req.body.worksitenote,
   });
@@ -135,6 +135,11 @@ exports.putWorksite = async (req, res) => {
   const id = req.params.id;
   const { name, address, local, salary, worktype, date, hour, nopr, note } = req.body;
   const datef = new Date(date)
+  const endt = moment(date).add(hour, 'hours')
+  console.log('hour : ', hour)
+  // console.log(moment(datef).format('YYYY-MM-DD HH:mm:ss'))
+  // console.log(moment(endt).format('YYYY-MM-DD HH:mm:ss'))
+  // endt.setHours(endt.getHours()+hour)
   await Worksite.findByIdAndUpdate(id,{
     name: name, 
     address: address, 
@@ -143,7 +148,7 @@ exports.putWorksite = async (req, res) => {
     worktype: worktype, 
     date: datef,
     // date.setDate(date.getDate()+7)
-    end: datef.setDate(datef.getDate()+hour), 
+    end: endt, 
     nopr: nopr,
     worksitenote: note,
     updatedAt: Date.now()
