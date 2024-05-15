@@ -25,7 +25,7 @@ const WorksiteSchema = new Schema({
   },
   // 급여
   salary: {
-    type: String,
+    type: Number,
     required: true,
   },
   // 업종
