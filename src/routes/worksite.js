@@ -7,6 +7,7 @@ router.get('/worksite', isLoggedIn, worksiteController.worksite);
 router.get('/worksite/add', isLoggedIn, worksiteController.addWorksite);
 router.post('/worksite/post', isLoggedIn, worksiteController.postWorksite);
 router.get('/worksite/:id', isLoggedIn, worksiteController.showWorksite);
+router.get('/worksite/:id/payment', isLoggedIn, worksiteController.showWorksitePayment);
 router.get('/worksite/:id/hire', isLoggedIn, worksiteController.matchToWorksite);
 router.post('/worksite/:id/hire/:eid', isLoggedIn, worksiteController.worksiteHireEmployee);
 router.get('/worksite/:id/edit', isLoggedIn, worksiteController.editWorksite);

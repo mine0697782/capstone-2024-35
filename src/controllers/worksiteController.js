@@ -180,3 +180,11 @@ exports.deleteMatchedEmployee = async (req, res) => {
   await Career.findOneAndDelete({employee: eid, worksite: id})
   res.redirect(`/worksite/${id}`)
 }
+
+exports.showWorksitePayment = async (req, res) => {
+  console.log('/worksitePayment')
+const { id } = req.params;
+const worksite = await Worksite.findById(id).populate('hired')
+// console.log(worksite)
+res.render('worksite/worksitePayments', { worksite, moment, calcAge })
+}
