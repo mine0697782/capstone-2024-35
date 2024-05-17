@@ -94,3 +94,12 @@
     right: -50px;
     bottom: -30px;
   }
+
+  .sortable {
+    cursor: pointer;
+    transition: background-color 0.3s ease; /* 부드러운 색상 전환 효과 */
+}
+
+.sortable:hover {
+    background-color: #e2e6ea; /* 부트스트랩의 회색계열 중 진한 색 */
+}

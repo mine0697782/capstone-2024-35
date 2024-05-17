@@ -38,7 +38,8 @@ new_employee = Employee(
     sex=entities_combined["sex"],
     local=entities_combined["local"],
     rrn=entities_combined["RRN"],
-    phonenumber=entities_combined["phonenumber"]
+    phonenumber=entities_combined["phonenumber"],
+    age = entities_combined["age"]
     )
 # 데이터 MongoDB에 저장
 employee_repo = EmployeeRepository()
