@@ -105,9 +105,6 @@ exports.matchToWorksite = async (req, res) => {
   const uid = req.user.id
   const worksite = await Worksite.findById(id)
   const employees = await Employee.find({user: uid, _id: { $nin: worksite.hired }})
-  // console.log('match to worksite')
-  // console.log(worksite)
-  // console.log(employees)
   res.render('worksite/matchToWorksite', { worksite, employees, calcAge, moment })
 }
 
@@ -120,8 +117,8 @@ exports.worksiteHireEmployee = async (req, res) => {
   const career = new Career({ employee, worksite })
   await worksite.save()
   await career.save()
-  res.redirect(`/worksite/${id}/hire`)
   await req.flash('info', '근무자가 추가되었습니다.')
+  res.redirect(`/worksite/${id}/hire`)
   // console.log(career)
 }
 

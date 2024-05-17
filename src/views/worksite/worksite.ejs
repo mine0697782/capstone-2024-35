@@ -26,15 +26,32 @@
 
 <% }); %>
 
-<div class="d-flex justify-content-between flex-wrap flex-md nowrap align-items-center pt-3 pb-2 mb-3">
-    <h3 class="h2">등록된 현장 목록</h3>
-
-    <div class="btn-toolbar mb-2 mb-md-0">
-        <div class="btn-group me-2">
-            <a href="/worksite/add" class="btn btn-sm btn-outline-secondary">+ New Worksite</a>
+<div class="mb-3">
+    <div class="d-flex justify-content-between flex-wrap flex-md nowrap align-items-center pt-3 pb-2 mb-3">
+        <h3 class="h2">등록된 현장 목록</h3>
+        
+    </div>    
+    <!-- <div class="container mb-3"> -->
+        <div class="d-flex justify-content-between">
+            <div>
+                <form role="search" method="POST" action="/worksite/search" id="searchWorksite"> 
+                    <div class="input-group">
+                        <input class="form-control" type="text" name="search" id="search" placeholder="검색">
+                        <button class="btn btn-outline-secondary" type="submit" form="searchWorksite">검색</button>
+                    </div>
+                </form>
+            </div>
+            <div class="btn-toolbar">
+                <div class="btn-group me-2 ">
+                    <button onclick="location.href='/worksite/add'" class="btn btn-outline-secondary" type="button">추가하기</button>
+                    <!-- <a href="/worksite/add" class="btn btn-sm btn-outline-secondary">추가하기</a> -->
+                </div>
+            </div>
         </div>
-    </div>
-</div>    
+    <!-- </div> -->
+</div>
+
+
 
 <% messages.forEach(element => { %>
     <div class="alert alert-success alert-dismissible fade show" role="alert">
@@ -55,14 +72,14 @@
                 <th scope="col" class="sortable" onclick="sortTable('date', 'date')">날짜</th>
                 <th scope="col" class="sortable" onclick="sortTable('hour', 'number')">근무시간</th>
                 <th scope="col" class="sortable" onclick="sortTable('norp', 'number')">필요인원</th>
-                <th scope="col" class="sortable" onclick="sortTable('update', 'date')">작성일(수정일)</th>
+                <!-- <th scope="col" class="sortable" onclick="sortTable('update', 'date')">작성일(수정일)</th> -->
                 <th scope="col" class="text-end">Action</th>
             </tr>
         </thead>
 
         <tbody>
             <% worksites.forEach(worksite => { %>
-             <tr class="align-middle">
+             <tr class="align-middle" onclick="location.href='/worksite/<%= worksite._id %>'">
                 <td><%= worksite.name %></td>
                 <td><%= worksite.address %></td>
                 <td><%= worksite.local %></td>
@@ -71,7 +88,7 @@
                 <td><%= moment(worksite.date).format("YYYY년 MMMM Do a hh:mm") %></td>
                 <td><%= moment(worksite.end).diff(worksite.date, 'hour') %>시간</td>
                 <td><%= worksite.hired.length %> / <%= worksite.nopr %></td>
-                <td><%= moment(worksite.updatedAt).format("YYYY년 MMMM Do a hh:mm") %></td>
+                <!-- <td><%= moment(worksite.updatedAt).format("YYYY년 MMMM Do a hh:mm") %></td> -->
                 <td class="text-end">
 
                     <div class="d-flex flex-row justify-content-end gap-2">
