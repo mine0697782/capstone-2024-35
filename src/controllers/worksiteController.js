@@ -195,6 +195,16 @@ exports.showWorksitePayment = async (req, res) => {
 exports.searchWorksite = async (req, res) => {
   console.log('/searchWorksite')
   console.log(req.body)
-  res.send("searchWorksite")
+  const key = req.body.key;
+  const wholeWorksites = await Worksite.find({});
+  const worksites = wholeWorksites.filter(worksite => 
+    worksite.name.includes(key) ||
+    worksite.address.includes(key) ||
+    worksite.local.includes(key) ||
+    worksite.worktype.includes(key)
+  );
+  // console.log(worksites)
+  const messages = await req.flash('info');
+  res.render('worksite/worksite', { messages, worksites, moment })
 
 }
