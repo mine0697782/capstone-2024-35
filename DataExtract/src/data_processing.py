@@ -1,7 +1,7 @@
 import re
 
 def find_career_status(text):
-    pattern = r'경력\s*:\s*(유|무|없|있)'
+    pattern = r'경력\s*(:| )\s*(유|무|없|있)'
     match = re.search(pattern, text)
     if match:
         raw_career = match.group(1)
