@@ -136,9 +136,8 @@ npm install
 MONGO_URI=our mongodb uri (given) <br> JWT_SECRET=our own text
 
 
-## 7. 캡스톤 중간발료 자료 
-https://drive.google.com/file/d/1LUjsdSaV7NIY5Zc5wkjRuRAeCKtxECTb/view?usp=drivesdk
-
+## 7. 캡스톤 최종발료 자료 
+https://docs.google.com/presentation/d/1iJvgJuWEdSxu9rag-1UDNdaGIv3s8Zqh/edit?usp=sharing&ouid=116159848948864038515&rtpof=true&sd=true
 
 ## 8. 캡스톤 포스터 ai 파일
 https://drive.google.com/file/d/1brOpfNPwoGO98SUKq56ew-wEG-nqXEWk/view?usp=drive_link
