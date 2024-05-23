@@ -1,7 +1,7 @@
 const Employee = require('../models/Employee')
 const mongoose = require('mongoose');
 const Career = require('../models/Career')
-const calculateAge = require('../public/js/calcAge')
+const calculateAge = require('../utils/calcAge')
 
 
 /**

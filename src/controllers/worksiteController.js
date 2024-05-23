@@ -3,7 +3,7 @@ const Employee = require('../models/Employee');
 const Career = require('../models/Career')
 const mongoose = require('mongoose');
 const moment = require('moment');
-const calcAge = require('../public/js/calcAge');
+const calcAge = require('../utils/calcAge');
 
 require("moment-timezone")
 require("moment/locale/ko");
